@@ -6,31 +6,35 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { environment } from "src/environments/environment";
-import { AngularFireModule } from "@angular/fire";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomeComponent } from './modules/home/home.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AccountListComponent } from './modules/account-list/account-list.component';
 import { AddAccountComponent } from './modules/add-account/add-account.component';
+import { AccountListElementComponent } from './modules/account-list-element/account-list-element.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    DashboardComponent,
-    AccountListComponent,
-    AddAccountComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    CoreModule,
-    SharedModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        DashboardComponent,
+        AccountListComponent,
+        AddAccountComponent,
+        AccountListElementComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        FontAwesomeModule,
+        CoreModule,
+        SharedModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

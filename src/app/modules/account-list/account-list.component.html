@@ -1,1 +1,29 @@
-<p>account-list works!</p>
+<div id="account-list">
+    <div id="container">
+        <div id="account-list-header">
+            <div id="site" class="element sortable-element">
+                <div>
+                    Site&nbsp;&nbsp;
+                </div>
+                <span class="sort-icon" (click)="toggleSiteSortOrder()">
+                    <fa-icon [icon]="getSortIcon(siteSortOrder)"></fa-icon>
+                </span>
+            </div>
+            <div id="tag" class="element">Tags</div>
+            <div id="username" class="element sortable-element">
+                <div>
+                    Username&nbsp;&nbsp;
+                </div>
+                <span class="sort-icon" (click)="toggleUsernameSortOrder()">
+                    <fa-icon [icon]="getSortIcon(usernameSortOrder)"></fa-icon>
+                </span>
+            </div>
+            <div id="password" class="element">Password</div>
+            <div id="actions" class="element">Actions</div>
+        </div>
+        <app-account-list-element *ngFor="let item of accountItems; index as i; last as isLast" [account]="item"
+            [isLastElement]="isLast" [index]="i" class="list-element" (deleteEmitter)="deleteAccount($event)"
+            (editEmitter)="editAccount($event)">
+        </app-account-list-element>
+    </div>
+</div>

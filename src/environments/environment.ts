@@ -5,14 +5,14 @@
 export const environment = {
     production: false,
     firebaseConfig: {
-      apiKey: "AIzaSyD_tB68VWCuk9LkdaCmEYAhdjI1nWANfgo",
-      authDomain: "password-lawyer.firebaseapp.com",
-      projectId: "password-lawyer",
-      storageBucket: "password-lawyer.appspot.com",
-      messagingSenderId: "839981474923",
-      appId: "1:839981474923:web:bcc3247ab7fc39e1e0fd2e",
-      measurementId: "G-K3QZ03SDE7"
-     }
+        apiKey: 'AIzaSyD_tB68VWCuk9LkdaCmEYAhdjI1nWANfgo',
+        authDomain: 'password-lawyer.firebaseapp.com',
+        projectId: 'password-lawyer',
+        storageBucket: 'password-lawyer.appspot.com',
+        messagingSenderId: '839981474923',
+        appId: '1:839981474923:web:bcc3247ab7fc39e1e0fd2e',
+        measurementId: 'G-K3QZ03SDE7'
+    }
 };
 
 /*

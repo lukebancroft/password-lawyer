@@ -1,0 +1,162 @@
+.account-list-element {
+    .element-row {
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-color: #283747;
+        color: #F3F3F3;
+        padding: 0.2vw;
+        font-weight: lighter;
+        border-bottom: 1px solid rgba(243, 243, 243, 0.05);
+        cursor: context-menu;
+
+        &:hover {
+            -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+            z-index:2;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .element {
+            text-align: center;
+            margin: 1vw;
+            width: 20%;
+
+            .tag-list-single {
+                display: flex;
+                justify-content: center;
+            }
+
+            .tag-list-multiple {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .tag-list-scrollable {
+                justify-content: unset;
+                overflow-y: hidden;
+                overflow-x: auto;
+                white-space: nowrap;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            .tag {
+                border: 1px solid;
+                border-radius: 2vw;
+                display: inline;
+                padding: 0.5vw 1vw;
+                margin: 0 1px;
+
+                &:first-child {
+                    margin: 0 1px 0 0;
+                }
+
+                &:last-child {
+                    margin: 0 0 0 1px;
+                }
+            }
+
+            .dropdown-icon {
+                font-size: large;
+                cursor: pointer;
+
+                &:hover {
+                    color: #de354c;
+                }
+
+                fa-icon {
+                    pointer-events: none;
+                }
+            }
+
+            .dropdown-action-list {
+                display: none;
+                position: absolute;
+                border-radius: 0.8vw;
+                background-color: #f1f1f1;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 3;
+
+                .dropdown-action {
+                    color: black;
+                    padding: 1vw;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+
+                    div {
+                        pointer-events: none;
+                        padding: 0.5vw;
+                    }
+
+                    &:hover {
+                        background-color: #ddd;
+                        border-radius: 0.8vw;
+                    }
+                }
+
+                .details-action:hover {
+                    color: #3498DB;
+                }
+
+                .edit-action:hover {
+                    color: #F39C12;
+                }
+
+                .delete-action:hover {
+                    color: #de354c;
+                }
+            }
+
+            .show-dropdown {
+                display:block;
+                -webkit-transition: max-height 2s ease;
+                -moz-transition: max-height 2s ease;
+                transition: max-height 2s ease;
+            }
+        }
+    }
+
+    .account-details {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        transition: height 350ms ease-in-out;
+        text-align: center;
+        width: 100%;
+        color: #283747;
+        background-color: #F3F3F3;
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+
+        .details-element {
+            text-align: center;
+            margin: 1vw;
+            width: 25%;
+        }
+    }
+
+    .last-element-details {
+        border-radius: 0 0 0.8vw 0.8vw;
+    }
+
+    .show-details {
+        display: flex;
+        height: auto;
+    }
+
+    .last-element {
+        border-radius: 0 0 0.8vw 0.8vw;
+        border-bottom: none;
+    }
+}

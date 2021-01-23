@@ -1,0 +1,53 @@
+<div class="account-list-element">
+    <div class="element-row" (click)="toggleAccountDetails($event)">
+        <div class="element">{{account.site}}</div>
+        <div class="element">
+            <div
+                [ngClass]="(account.tags != undefined && account.tags.length > 1) ? 'tag-list-multiple' : 'tag-list-single'">
+                <div class="tag" *ngFor="let tag of account.tags"
+                    [ngStyle]="{'border-color': tag.borderColor, 'color': tag.textColor}">
+                    {{tag.label}}
+                </div>
+            </div>
+        </div>
+        <div class="element">{{account.username}}</div>
+        <div class="element">{{account.password}}</div>
+        <div class="element">
+            <span class="dropdown-icon" (click)="toggleDropdownActions()">
+                <fa-icon [icon]="faEllipsisH"></fa-icon>
+            </span>
+            <div id="dropdown-list" class="dropdown-action-list">
+                <span class="dropdown-action details-action" (click)="detailsAction()">
+                    <div>
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </div>
+                    <div>
+                        Details
+                    </div>
+                </span>
+                <span class="dropdown-action edit-action" (click)="editAction()">
+                    <div>
+                        <fa-icon [icon]="faCog"></fa-icon>
+                    </div>
+                    <div>
+                        Edit
+                    </div>
+                </span>
+                <span class="dropdown-action delete-action" (click)="deleteAction()">
+                    <div>
+                        <fa-icon [icon]="faBan"></fa-icon>
+                    </div>
+                    <div>
+                        Delete
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="account-details" [ngClass]="{'last-element-details':isLastElement}">
+        <div class="details-element"><b>Added on: </b>{{account.addDate | date:'shortDate'}}</div>
+        <div class="details-element"><b>Last modified on: </b>{{account.lastModified | date:'shortDate'}}</div>
+        <div class="details-element"><b>Accessed: </b>{{account.timesAccessed}}<b> times</b></div>
+        <div class="details-element"><b>Updated: </b>{{account.timesUpdated}}<b> times</b></div>
+    </div>
+</div>
