@@ -1,0 +1,22 @@
+<div id="dashboard">
+    <div id="container">
+        <div class="actionZone">
+            <div class="zoneType">
+                <div class="type" (click)="changeDisplayedComponent(actionToDisplay.LIST)"
+                    [ngClass]="{'actif':getDisplayed() == actionToDisplay.LIST}">
+                    <div class="label">List accounts</div>
+                </div>
+                <div class="separator"> </div>
+                <div class="type" (click)="changeDisplayedComponent(actionToDisplay.ADD)"
+                    [ngClass]="{'actif':getDisplayed() == actionToDisplay.ADD}">
+                    <div class=" label">Add account</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="displayZone" [ngSwitch]="getDisplayed()">
+            <app-account-list *ngSwitchCase="actionToDisplay.LIST"></app-account-list>
+            <app-add-account *ngSwitchCase="actionToDisplay.ADD"></app-add-account>
+        </div>
+    </div>
+</div>
