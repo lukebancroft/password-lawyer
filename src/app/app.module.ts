@@ -10,11 +10,17 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { HomeComponent } from './modules/home/home.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { AccountListComponent } from './modules/account-list/account-list.component';
+import { AddAccountComponent } from './modules/add-account/add-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    AccountListComponent,
+    AddAccountComponent
   ],
   imports: [
     BrowserModule,
