@@ -1,7 +1,7 @@
 <div class="account-list-element">
     <div class="element-row" (click)="toggleAccountDetails($event)">
-        <div class="element">{{account.site}}</div>
-        <div class="element">
+        <div class="cell-element">{{account.site}}</div>
+        <div class="cell-element">
             <div
                 [ngClass]="(account.tags != undefined && account.tags.length > 1) ? 'tag-list-multiple' : 'tag-list-single'">
                 <div class="tag" *ngFor="let tag of account.tags"
@@ -10,9 +10,9 @@
                 </div>
             </div>
         </div>
-        <div class="element">{{account.username}}</div>
-        <div class="element">{{account.password}}</div>
-        <div class="element">
+        <div class="cell-element">{{account.username}}</div>
+        <div class="cell-element">{{account.password}}</div>
+        <div class="cell-element">
             <span class="dropdown-icon" (click)="toggleDropdownActions()">
                 <fa-icon [icon]="faEllipsisH"></fa-icon>
             </span>

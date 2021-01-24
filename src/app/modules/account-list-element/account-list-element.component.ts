@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { faBan, faCog, faEllipsisH, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { IAccount } from 'src/app/shared/models/IAccount';
 
@@ -7,7 +7,7 @@ import { IAccount } from 'src/app/shared/models/IAccount';
     templateUrl: './account-list-element.component.html',
     styleUrls: ['./account-list-element.component.scss']
 })
-export class AccountListElementComponent implements OnInit {
+export class AccountListElementComponent implements OnInit, OnChanges {
     @Output() deleteEmitter = new EventEmitter<string>();
     @Output() editEmitter = new EventEmitter<string>();
     @Input() account: IAccount;
@@ -24,8 +24,22 @@ export class AccountListElementComponent implements OnInit {
     ngOnInit(): void {
         this.addScrollToOverflowingTags();
         if (this.isLastElement) {
-            document.getElementsByClassName('element-row')[this.index].classList.add('last-element');
+            this.getCurrentRowElement().classList.add('last-element');
         }
+    }
+
+    ngOnChanges(): void {
+        const currentAccountDetailsElement: Element = document.getElementsByClassName('account-details')[this.index];
+        if (this.isLastElement && !currentAccountDetailsElement.classList.contains('show-details')) {
+            this.getCurrentRowElement().classList.add('last-element');
+        }
+        else {
+            this.getCurrentRowElement().classList.remove('last-element');
+        }
+    }
+
+    getCurrentRowElement(): Element {
+        return document.getElementsByClassName('element-row')[this.index];
     }
 
     /**
@@ -50,7 +64,7 @@ export class AccountListElementComponent implements OnInit {
         if (!(event.target === dropdownIcon)) {
             const accountDetailsElements: HTMLCollectionOf<Element> = document.getElementsByClassName('account-details');
             const currentAccountDetailsElement: Element = accountDetailsElements[this.index];
-            const currentRow: Element = document.getElementsByClassName('element-row')[this.index];
+            const currentRow: Element = this.getCurrentRowElement();
 
             currentAccountDetailsElement.classList.contains('show-details')
                 ? this.hideAccountDetails(currentAccountDetailsElement as HTMLElement, currentRow, this.isLastElement)

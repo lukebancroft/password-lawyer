@@ -14,11 +14,42 @@
             display: flex;
             font-weight: bold;
             border-bottom: 1px solid rgba(243, 243, 243, 0.4);
+            overflow: hidden;
 
             .element {
-                text-align: center;
-                margin: 1vw;
-                width: 20%;
+                display: flex;
+                justify-content: center;
+                padding: 1vw;
+                width: 0;
+                flex: 1 1 0;
+
+                div {
+                    display: flex;
+                }
+
+                .filter-input {
+                    flex: 1;
+                    width: 0;
+
+                    input {
+                        min-width: 0;
+                    }
+                }
+
+                .hidden-filter {
+                    display: none;
+
+                    div {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    background:#2d4b6a;
+                    -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+                    -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+                    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+                }
             }
 
             .sortable-element {
@@ -26,7 +57,7 @@
                 justify-content: center;
             }
 
-            .sort-icon {
+            .header-icon {
                 cursor: pointer;
             }
         }
